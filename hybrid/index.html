@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kriptografi Hybrid - RSA + AES</title>
+
+    <!-- Global Style -->
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Page Specific Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+        <h1>
+            <i class="fa-solid fa-diagram-project"></i>
+            Kriptografi Hybrid (RSA + AES)
+        </h1>
+        <p class="subtitle">
+            Kombinasi kecepatan AES dan keamanan distribusi kunci RSA
+        </p>
+
+        <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </header>
+
+    <!-- Penjelasan Konsep -->
+    <section class="info-section">
+        <h2><i class="fa-solid fa-circle-info"></i> Penjelasan Konsep</h2>
+        <p>
+            Kriptografi hybrid adalah metode yang digunakan oleh hampir
+            seluruh sistem keamanan modern.
+        </p>
+
+        <ol>
+            <li>Pengirim membuat <strong>kunci AES acak</strong></li>
+            <li>Data dienkripsi menggunakan <strong>AES (cepat)</strong></li>
+            <li>Kunci AES dienkripsi menggunakan <strong>RSA (aman)</strong></li>
+            <li>Penerima mendekripsi kunci AES dengan private key RSA</li>
+            <li>Data didekripsi menggunakan kunci AES</li>
+        </ol>
+    </section>
+
+    <section class="crypto-panel single">
+
+        <!-- STEP 1 -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-key"></i> 1. Generate RSA Key Pair (Penerima)</h3>
+
+            <button id="generateRSAButton" class="primary">
+                Generate RSA Key Pair
+            </button>
+
+            <label>Public Key (Base64)</label>
+            <textarea id="publicKeyOutput" readonly></textarea>
+
+            <label>Private Key (Base64)</label>
+            <textarea id="privateKeyOutput" readonly></textarea>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-lock"></i> 2. Enkripsi oleh Pengirim</h3>
+
+            <label>Pesan Rahasia</label>
+            <textarea id="plaintext"></textarea>
+
+            <button id="encryptHybridButton" class="primary">
+                Enkripsi (AES + RSA)
+            </button>
+
+            <label>Data Terenkripsi (AES)</label>
+            <textarea id="encryptedDataOutput" readonly></textarea>
+
+            <label>Kunci AES Terenkripsi (RSA)</label>
+            <textarea id="encryptedAESKeyOutput" readonly></textarea>
+
+            <label>Initialization Vector (Base64)</label>
+            <textarea id="ivOutput" readonly></textarea>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-unlock"></i> 3. Dekripsi oleh Penerima</h3>
+
+            <button id="decryptHybridButton" class="secondary">
+                Dekripsi Pesan
+            </button>
+
+            <label>Pesan Asli</label>
+            <div id="plaintextOutput" class="result highlight"></div>
+        </div>
+
+    </section>
+
+    <section class="note">
+        <h3><i class="fa-solid fa-shield-halved"></i> Catatan Industri</h3>
+        <p>
+            Mekanisme ini digunakan oleh HTTPS (SSL/TLS).
+            RSA digunakan hanya untuk pertukaran kunci,
+            sedangkan data dienkripsi menggunakan AES.
+        </p>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

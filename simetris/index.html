@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kriptografi Simetris - AES</title>
+
+    <!-- Global Style -->
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Page Specific Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome (ikon profesional) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+        <h1>
+            <i class="fa-solid fa-lock"></i>
+            Kriptografi Simetris (AES-256-GCM)
+        </h1>
+        <p class="subtitle">
+            Satu kunci rahasia digunakan untuk proses enkripsi dan dekripsi
+        </p>
+
+        <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </header>
+
+    <!-- Penjelasan Konsep -->
+    <section class="info-section">
+        <h2><i class="fa-solid fa-circle-info"></i> Penjelasan Fitur</h2>
+        <p>
+            Pada kriptografi simetris, pengirim dan penerima
+            <strong>menggunakan kunci yang sama</strong>.
+            Sistem ini sangat cepat dan cocok untuk mengenkripsi data berukuran besar.
+        </p>
+
+        <ul>
+            <li><strong>AES-256-GCM</strong> digunakan sebagai algoritma enkripsi</li>
+            <li><strong>PBKDF2</strong> digunakan untuk membentuk kunci dari password</li>
+            <li><strong>IV</strong> dan <strong>Salt</strong> dibuat secara acak</li>
+            <li>Seluruh proses berjalan di sisi client (browser)</li>
+        </ul>
+    </section>
+
+    <!-- Aplikasi Enkripsi -->
+    <section class="crypto-panel">
+
+        <div class="panel sender">
+            <h3><i class="fa-solid fa-user"></i> Pengirim (Enkripsi)</h3>
+
+            <label>Pesan Rahasia</label>
+            <textarea id="plaintext"
+                      placeholder="Masukkan pesan yang akan dienkripsi"></textarea>
+
+            <label>Password / Kunci Rahasia</label>
+            <input type="password" id="password"
+                   placeholder="Minimal 8 karakter">
+
+            <button id="encryptButton" class="primary">
+                <i class="fa-solid fa-lock"></i> Enkripsi Pesan
+            </button>
+
+            <div class="output">
+                <label>Ciphertext (Base64)</label>
+                <div id="ciphertextOutput" class="result"></div>
+
+                <label>Initialization Vector (Base64)</label>
+                <div id="ivOutput" class="result"></div>
+
+                <label>Salt (Base64)</label>
+                <div id="saltOutput" class="result"></div>
+            </div>
+        </div>
+
+        <div class="panel receiver">
+            <h3><i class="fa-solid fa-user-shield"></i> Penerima (Dekripsi)</h3>
+
+            <label>Password / Kunci Rahasia</label>
+            <input type="password" id="decryptPassword">
+
+            <label>Ciphertext</label>
+            <textarea id="decryptCiphertext"></textarea>
+
+            <label>Initialization Vector</label>
+            <input type="text" id="decryptIV">
+
+            <label>Salt</label>
+            <input type="text" id="decryptSalt">
+
+            <button id="decryptButton" class="secondary">
+                <i class="fa-solid fa-unlock"></i> Dekripsi Pesan
+            </button>
+
+            <div class="output">
+                <label>Pesan Asli</label>
+                <div id="plaintextOutput" class="result highlight"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Catatan Akademik -->
+    <section class="note">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Catatan Akademik</h3>
+        <p>
+            Dalam sistem nyata, password dan kunci rahasia
+            <strong>tidak pernah dikirim ke server</strong>.
+            Server hanya menyimpan ciphertext, IV, dan salt.
+        </p>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kriptografi Asimetris - RSA</title>
+
+    <!-- Global Style -->
+    <link rel="stylesheet" href="../main.css">
+
+    <!-- Page Specific Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="page-header">
+        <h1>
+            <i class="fa-solid fa-key"></i>
+            Kriptografi Asimetris (RSA-OAEP)
+        </h1>
+        <p class="subtitle">
+            Enkripsi menggunakan Public Key dan dekripsi menggunakan Private Key
+        </p>
+
+        <a href="../index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </header>
+
+    <!-- Penjelasan Konsep -->
+    <section class="info-section">
+        <h2><i class="fa-solid fa-circle-info"></i> Penjelasan Fitur</h2>
+        <p>
+            Kriptografi asimetris menggunakan <strong>dua kunci berbeda</strong>.
+            Public key boleh dibagikan ke siapa saja, sedangkan private key
+            harus disimpan secara rahasia oleh pemiliknya.
+        </p>
+
+        <ul>
+            <li>Algoritma: <strong>RSA-OAEP (SHA-256)</strong></li>
+            <li>Panjang kunci: <strong>2048-bit</strong></li>
+            <li>Cocok untuk pertukaran kunci dan tanda tangan digital</li>
+            <li><strong>Tidak efisien</strong> untuk data besar</li>
+        </ul>
+    </section>
+
+    <!-- Aplikasi RSA -->
+    <section class="crypto-panel single">
+
+        <!-- Key Generation -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-gears"></i> 1. Pembuatan Pasangan Kunci</h3>
+
+            <button id="generateKeyButton" class="primary">
+                <i class="fa-solid fa-key"></i> Generate RSA Key Pair
+            </button>
+
+            <label>Public Key (Base64)</label>
+            <textarea id="publicKeyOutput" readonly></textarea>
+
+            <label>Private Key (Base64)</label>
+            <textarea id="privateKeyOutput" readonly></textarea>
+        </div>
+
+        <!-- Encryption -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-lock"></i> 2. Enkripsi (Public Key)</h3>
+
+            <label>Pesan (maksimal ±190 karakter)</label>
+            <textarea id="plaintext"></textarea>
+
+            <button id="encryptButton" class="primary">
+                <i class="fa-solid fa-lock"></i> Enkripsi dengan Public Key
+            </button>
+
+            <label>Ciphertext (Base64)</label>
+            <textarea id="ciphertextOutput" readonly></textarea>
+        </div>
+
+        <!-- Decryption -->
+        <div class="panel">
+            <h3><i class="fa-solid fa-unlock"></i> 3. Dekripsi (Private Key)</h3>
+
+            <button id="decryptButton" class="secondary">
+                <i class="fa-solid fa-unlock"></i> Dekripsi dengan Private Key
+            </button>
+
+            <label>Pesan Asli</label>
+            <div id="plaintextOutput" class="result highlight"></div>
+        </div>
+
+    </section>
+
+    <!-- Catatan Akademik -->
+    <section class="note">
+        <h3><i class="fa-solid fa-graduation-cap"></i> Catatan Akademik</h3>
+        <p>
+            RSA <strong>tidak digunakan</strong> untuk mengenkripsi data besar
+            karena sangat lambat dan memiliki batas ukuran pesan.
+            Oleh karena itu, RSA biasanya digunakan untuk
+            <strong>mengenkripsi kunci simetris</strong> (Hybrid Cryptography).
+        </p>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

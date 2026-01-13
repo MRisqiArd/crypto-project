@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Kriptografi End-to-End</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1><i class="fa-solid fa-shield-halved"></i> Sistem Kriptografi End-to-End</h1>
+        <p class="subtitle">
+            Simulasi kriptografi modern berbasis Web Crypto API <br>
+            Seluruh proses enkripsi dan dekripsi berjalan di sisi client
+        </p>
+    </header>
+
+    <section class="concept">
+        <h2><i class="fa-solid fa-book"></i> Konsep End-to-End Encryption</h2>
+        <p>
+            End-to-End Encryption (E2EE) adalah metode pengamanan data di mana
+            hanya pengirim dan penerima yang dapat membaca isi pesan.
+        </p>
+        <p>
+            Server hanya bertindak sebagai media pengirim data dan
+            <strong>tidak memiliki kemampuan untuk mendekripsi pesan</strong>.
+        </p>
+    </section>
+
+    <section class="menu">
+
+        <a href="simetris/index.html" class="card">
+            <i class="fa-solid fa-lock card-icon"></i>
+            <h3>Kriptografi Simetris</h3>
+            <p>
+                Menggunakan satu kunci rahasia yang sama
+                untuk proses enkripsi dan dekripsi data.
+            </p>
+            <ul>
+                <li>AES-256-GCM</li>
+                <li>PBKDF2 (Key Derivation)</li>
+                <li>Sangat cepat dan efisien</li>
+            </ul>
+        </a>
+
+        <a href="asimetris/index.html" class="card">
+            <i class="fa-solid fa-key card-icon"></i>
+            <h3>Kriptografi Asimetris</h3>
+            <p>
+                Menggunakan pasangan kunci public key dan private key
+                untuk menjamin keamanan distribusi kunci.
+            </p>
+            <ul>
+                <li>RSA-OAEP</li>
+                <li>2048-bit key</li>
+                <li>Keamanan tinggi</li>
+            </ul>
+        </a>
+
+        <a href="hybrid/index.html" class="card">
+            <i class="fa-solid fa-diagram-project card-icon"></i>
+            <h3>Kriptografi Hybrid</h3>
+            <p>
+                Menggabungkan kecepatan AES dengan keamanan distribusi kunci RSA.
+            </p>
+            <ul>
+                <li>RSA + AES</li>
+                <li>Standar industri</li>
+                <li>Digunakan pada SSL/TLS</li>
+            </ul>
+        </a>
+
+    </section>
+
+    <section class="note">
+        <h3><i class="fa-solid fa-circle-info"></i> Catatan Presentasi</h3>
+        <p>
+            Proyek ini dibuat sebagai media pembelajaran mata kuliah
+            Keamanan Informasi. Implementasi produksi memerlukan pengamanan tambahan
+            seperti proteksi memory, secure storage, dan mitigasi XSS.
+        </p>
+    </section>
+
+    <footer>
+        <p>© Sistem Kriptografi End-to-End — Web Crypto API</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
